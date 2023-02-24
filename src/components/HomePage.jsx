@@ -1,4 +1,6 @@
 import { Container, Row } from "react-bootstrap";
+import Main from "./Main";
+import Player from "./Player";
 import VerticalSideBar from "./VerticalSidebar";
 
 const HomePage = () => {
@@ -6,6 +8,8 @@ const HomePage = () => {
     <Container fluid>
       <Row>
         <VerticalSideBar />
+        <Main />
+        <Player />
       </Row>
     </Container>
   );

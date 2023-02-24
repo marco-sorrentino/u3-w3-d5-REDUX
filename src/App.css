@@ -133,8 +133,9 @@ ul {
 .mainLinks a {
   color: white;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 14px;
   opacity: 0.3;
+  text-decoration: none;
 }
 
 .mainLinks a:hover {
