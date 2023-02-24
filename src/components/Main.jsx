@@ -1,6 +1,32 @@
+import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import AlbumCard from "./AlbumCard";
 
-const Main = () => {
+const Main = (props) => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const artisti = ["rihanna", "adele", "coldplay"];
+
+  const getData = async () => {
+    try {
+      let res = await fetch(
+        "https://striveschool-api.herokuapp.com/api/deezer/search?q=" +
+          artisti[2]
+      );
+      if (res.ok) {
+        const data = await res.json();
+        const albums = data.data;
+        console.log(albums);
+        setData(albums);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <Container>
       <Col xs={12} md={9} className="offset-md-3 mainPage">
@@ -28,7 +54,19 @@ const Main = () => {
               <div
                 className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3"
                 id="rockSection"
-              ></div>
+              >
+                {data?.map((el, i) => {
+                  return (
+                    <AlbumCard
+                      key={i}
+                      obj={el}
+                      cover={el.artist.picture_medium}
+                      artist={el.artist.name}
+                      album={el.album.title}
+                    />
+                  );
+                })}
+              </div>
             </div>
           </Col>
         </Row>
