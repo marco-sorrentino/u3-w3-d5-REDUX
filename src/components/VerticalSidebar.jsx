@@ -43,7 +43,7 @@ const VerticalSideBar = () => {
                   <div className="input-group mt-3">
                     <input
                       type="text"
-                      class="form-control mb-2"
+                      className="form-control mb-2"
                       id="searchField"
                       placeholder="Search"
                       aria-label="Search"
