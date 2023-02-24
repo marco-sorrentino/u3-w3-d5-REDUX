@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const AlbumCard = (props) => {
   return (
     <div className="col text-center">
@@ -5,10 +7,9 @@ const AlbumCard = (props) => {
         <img className="img-fluid" src={props.cover} alt="1" />
       </a>
       <p>
-        <a href="alt">
-          Album: {props.album}
-          <br />
-        </a>
+        <Link to={"/album"}> Album: {props.album} </Link>
+        <br />
+
         <a href="/artist_page.html?id=${songInfo.artist.id}">
           Artist: {props.artist}
         </a>
