@@ -1,4 +1,4 @@
-import { Container, Row } from "react-bootstrap";
+/* import { Container, Row } from "react-bootstrap";
 import Main from "./Main";
 import Player from "./Player";
 import VerticalSideBar from "./VerticalSidebar";
@@ -16,3 +16,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+ */
