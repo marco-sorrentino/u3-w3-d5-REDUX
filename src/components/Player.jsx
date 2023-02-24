@@ -1,8 +1,13 @@
 import { Container, Row, Col } from "react-bootstrap";
+import play from "../assets/images/Play.png";
+import previous from "../assets/images/Previous.png";
+import shuffle from "../assets/images/Shuffle.png";
+import next from "../assets/images/Next.png";
+import repeat from "../assets/images/Repeat.png";
 
 const Player = () => {
   return (
-    <Container fluid className=" fixed-bottom bg-container pt-1">
+    <Container fluid className="fixed-bottom bg-container pt-1">
       <Row className="row">
         <Col lg={10} className="offset-lg-2">
           <Row className="row">
@@ -13,21 +18,23 @@ const Player = () => {
               className="offset-3 offset-md-4 offset-lg-5 playerControls mt-1"
             >
               <Row className="row">
-                <a href="alt">
-                  <img src="playerbuttons/Shuffle.png" alt="shuffle" />
-                </a>
-                <a href="alt">
-                  <img src="playerbuttons/Previous.png" alt="shuffle" />
-                </a>
-                <a href="alt">
-                  <img src="playerbuttons/Play.png" alt="shuffle" />
-                </a>
-                <a href="alt">
-                  <img src="playerbuttons/Next.png" alt="shuffle" />
-                </a>
-                <a href="alt">
-                  <img src="playerbuttons/Repeat.png" alt="shuffle" />
-                </a>
+                <div className="d-flex justify-content-between">
+                  <a href="alt">
+                    <img src={shuffle} alt="shuffle" />
+                  </a>
+                  <a href="alt">
+                    <img src={previous} alt="shuffle" />
+                  </a>
+                  <a href="alt">
+                    <img src={play} alt="shuffle" />
+                  </a>
+                  <a href="alt">
+                    <img src={next} alt="shuffle" />
+                  </a>
+                  <a href="alt">
+                    <img src={repeat} alt="shuffle" />
+                  </a>
+                </div>
               </Row>
             </Col>
           </Row>
