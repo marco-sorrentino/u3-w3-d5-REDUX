@@ -54,7 +54,7 @@ const TrackList = (props) => {
                 <img src={el?.album.cover_medium} alt="" />
                 <p className="mt-4 fw-bold text-white">{el.album.title}</p>
                 <Link
-                  onClick={() => goArtist(viewArtistAction(props))}
+                  onClick={() => goArtist()}
                   to={"/artist"}
                   className="text-white text-decoration-none"
                 >
