@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { viewAlbumAction, viewArtistAction } from "../action";
 
 const AlbumCard = (props) => {
   const dispatch = useDispatch();
@@ -12,12 +13,7 @@ const AlbumCard = (props) => {
       <p>
         <Link
           className="text-decoration-none"
-          onClick={() =>
-            dispatch({
-              type: "VIEW_ALBUM",
-              payload: props.obj,
-            })
-          }
+          onClick={() => dispatch(viewAlbumAction(props))}
           to={"/album"}
         >
           {" "}
@@ -26,12 +22,7 @@ const AlbumCard = (props) => {
         <br />
 
         <Link
-          onClick={() =>
-            artist({
-              type: "VIEW_ARTIST",
-              payload: props.obj,
-            })
-          }
+          onClick={() => artist(viewArtistAction(props))}
           className="text-decoration-none"
           to={"/artist"}
         >
