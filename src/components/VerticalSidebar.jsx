@@ -19,9 +19,9 @@ const VerticalSideBar = () => {
         id="sidebar"
       >
         <div className="nav-container mt-4">
-          <a className="navbar-brand" href="index.html">
+          <Link to={"/"} className="navbar-brand" href="index.html">
             <img src={logo} alt="Spotify_Logo" width="131" height="40" />
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
