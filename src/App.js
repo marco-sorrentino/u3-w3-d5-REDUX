@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import ArtistPage from "./components/ArtistPage";
 import Main from "./components/Main";
 import Player from "./components/Player";
 import TrackList from "./components/TrackList";
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/album" element={<TrackList />} />
+          <Route path="/artist" element={<ArtistPage />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -24,9 +24,9 @@ const AlbumCard = (props) => {
         </Link>
         <br />
 
-        <a href="/artist_page.html?id=${songInfo.artist.id}">
+        <Link className="text-decoration-none" to={"/artist"}>
           Artist: {props.artist}
-        </a>
+        </Link>
       </p>
     </div>
   );
