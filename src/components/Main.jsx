@@ -85,7 +85,7 @@ const Main = (props) => {
     let popRandomArtists = [];
     let hipHopRandomArtists = [];
 
-    while (rockRandomArtists.length < 2) {
+    while (rockRandomArtists.length < 4) {
       // pushes elements inside the array until it has 4 strings
       let artist = rockArtists[Math.floor(Math.random() * rockArtists.length)]; // select an element from the array with an index between 0 and 7
       if (!rockRandomArtists.includes(artist)) {
@@ -94,14 +94,14 @@ const Main = (props) => {
       }
     }
 
-    while (popRandomArtists.length < 2) {
+    while (popRandomArtists.length < 4) {
       let artist = popArtists[Math.floor(Math.random() * popArtists.length)];
       if (!popRandomArtists.includes(artist)) {
         popRandomArtists.push(artist);
       }
     }
 
-    while (hipHopRandomArtists.length < 2) {
+    while (hipHopRandomArtists.length < 4) {
       let artist =
         hipHopArtists[Math.floor(Math.random() * hipHopArtists.length)];
       if (!hipHopRandomArtists.includes(artist)) {

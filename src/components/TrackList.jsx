@@ -1,6 +1,10 @@
 import { Col, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 export const TrackList = (props) => {
+  const seeTracklist = useSelector((state) => state.album);
+  console.log(seeTracklist);
+
   return (
     <Col className="col-12 col-md-9 offset-md-3 mainPage">
       <Row className="row mb-3">
@@ -13,7 +17,11 @@ export const TrackList = (props) => {
         </div>
       </Row>
       <Row className="row">
-        <Col className="col-md-3 pt-5 text-center" id="img-container"></Col>
+        <Col className="col-md-3 pt-5 text-center" id="img-container">
+          {seeTracklist.map((el) => {
+            return <img src={props.el.cover} alt="" />;
+          })}
+        </Col>
         <Col className="col-md-8 p-5">
           <Row className="row">
             <div className="col-md-10 mb-5" id="trackList"></div>
