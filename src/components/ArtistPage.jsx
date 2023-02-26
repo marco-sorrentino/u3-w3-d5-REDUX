@@ -87,7 +87,7 @@ const ArtistPage = (props) => {
                     className="col-sm-auto col-md-auto text-center mb-5"
                     key={i}
                   >
-                    <img src={el.album.cover_medium} alt="" />
+                    <img src={el?.album?.cover_medium} alt="" />
                     <p className="text-white">
                       Track:{" "}
                       {

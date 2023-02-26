@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { viewArtistAction } from "../action";
 
 const TrackList = (props) => {
   const seeAlbum = useSelector((state) => state.album);
+  const goArtist = useDispatch();
   const [getTrackList, setGetTrackList] = useState([]);
 
   const idAlbum = seeAlbum.map((el) => {
@@ -51,7 +53,11 @@ const TrackList = (props) => {
               >
                 <img src={el?.album.cover_medium} alt="" />
                 <p className="mt-4 fw-bold text-white">{el.album.title}</p>
-                <Link className="text-white text-decoration-none">
+                <Link
+                  onClick={() => goArtist(viewArtistAction(props))}
+                  to={"/artist"}
+                  className="text-white text-decoration-none"
+                >
                   {el.artist.name}
                 </Link>
                 <button

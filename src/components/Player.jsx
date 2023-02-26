@@ -8,9 +8,9 @@ import repeat from "../assets/images/Repeat.png";
 const Player = () => {
   return (
     <Container fluid className="fixed-bottom bg-container pt-1">
-      <Row className="row">
-        <Col lg={10} className="offset-lg-2">
-          <Row className="row">
+      <div>
+        <Row className="row ">
+          <Col lg={10} className="offset-lg-2">
             <Col
               xs={6}
               md={4}
@@ -37,22 +37,22 @@ const Player = () => {
                 </div>
               </Row>
             </Col>
-          </Row>
-          <Row className="justify-content-center playBar py-3">
-            <Col xs={8} md={6} className="">
-              <div className="progress">
-                <div
-                  className="progress-bar"
-                  role="progressbar"
-                  aria-valuenow="0"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+            <Row className="justify-content-center playBar py-3">
+              <Col xs={8} md={6} className="">
+                <div className="progress">
+                  <div
+                    className="progress-bar"
+                    role="progressbar"
+                    aria-valuenow="0"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </div>
     </Container>
   );
 };
