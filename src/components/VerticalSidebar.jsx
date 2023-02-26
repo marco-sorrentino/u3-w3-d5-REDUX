@@ -2,8 +2,16 @@ import { Col, Nav } from "react-bootstrap";
 import logo from "../assets/images/Spotify_Logo.png";
 import { FaHome } from "react-icons/fa";
 import { BsFillBookFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const VerticalSideBar = () => {
+  const [query, setQuery] = useState("");
+
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+  };
+
   return (
     <Col md={2}>
       <Nav
@@ -48,19 +56,21 @@ const VerticalSideBar = () => {
                       placeholder="Search"
                       aria-label="Search"
                       aria-describedby="basic-addon2"
+                      onChange={handleChange}
                     />
                     <div
                       className="input-group-append"
                       style={{ marginBottom: "4%" }}
                     >
-                      <button
+                      <Link
+                        to={"/search-page/" + query}
                         className="btn btn-outline-secondary btn-sm py-2"
                         type="button"
                         id="button-addon1"
                         onClick="search()"
                       >
                         GO
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </li>
@@ -76,7 +86,7 @@ const VerticalSideBar = () => {
           <button className="btn login-btn" type="button">
             Login
           </button>
-          <a href="alt">Cookie Policy</a> |<a href="alt"> Privacy</a>
+          <a href="alt">Cookie Policy</a> | <a href="alt"> Privacy</a>
         </div>
       </Nav>
     </Col>

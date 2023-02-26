@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const ArtistPage = (props) => {
   const seeArtist = useSelector((state) => state.artist);
@@ -82,11 +83,28 @@ const ArtistPage = (props) => {
             <Row className="row" id="apiLoaded">
               {name.map((el, i) => {
                 return (
-                  <Col className="" key={i}>
+                  <div
+                    className="col-sm-auto col-md-auto text-center mb-5"
+                    key={i}
+                  >
                     <img src={el.album.cover_medium} alt="" />
-                    <p className="text-white">Track: {el.title}</p>
-                    <p className="text-white">Album: {el.album.title}</p>
-                  </Col>
+                    <p className="text-white">
+                      Track:{" "}
+                      {
+                        el.title.length < 16
+                          ? `${el.title}`
+                          : `${el.title.substring(0, 16)}...` // setting the track title, if it's longer than 16 chars cuts the rest
+                      }
+                    </p>
+                    <Link className="text-decoration-none text-white">
+                      Album:{" "}
+                      {
+                        el.album.title.length < 16
+                          ? `${el.album.title}`
+                          : `${el.album.title.substring(0, 16)}...` // setting the track title, if it's longer than 16 chars cuts the rest
+                      }
+                    </Link>
+                  </div>
                 );
               })}
             </Row>
