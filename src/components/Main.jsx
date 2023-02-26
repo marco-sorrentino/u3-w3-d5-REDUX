@@ -160,6 +160,7 @@ const Main = (props) => {
                       cover={el.album.cover_medium}
                       artist={el.artist.name}
                       album={el.album.title}
+                      idAlbum={el.album.id}
                     />
                   );
                 })}

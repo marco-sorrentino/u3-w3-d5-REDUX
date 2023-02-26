@@ -10,9 +10,10 @@ const AlbumCard = (props) => {
       </a>
       <p>
         <Link
+          className="text-decoration-none"
           onClick={() =>
             dispatch({
-              type: "VIEW_TRACKLIST",
+              type: "VIEW_ALBUM",
               payload: props.obj,
             })
           }

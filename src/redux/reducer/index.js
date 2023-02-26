@@ -4,10 +4,10 @@ const intialState = {
 
 const mainReducer = (state = intialState, action) => {
   switch (action.type) {
-    case "VIEW_TRACKLIST":
+    case "VIEW_ALBUM":
       return {
         ...state,
-        album: [...state.list, action.payload],
+        album: [action.payload],
       };
     default:
       return state;
