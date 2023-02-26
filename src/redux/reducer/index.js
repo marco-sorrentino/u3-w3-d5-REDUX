@@ -1,5 +1,6 @@
 const intialState = {
   album: [],
+  artist: [],
 };
 
 const mainReducer = (state = intialState, action) => {
@@ -8,6 +9,11 @@ const mainReducer = (state = intialState, action) => {
       return {
         ...state,
         album: [action.payload],
+      };
+    case "VIEW_ARTIST":
+      return {
+        ...state,
+        artist: [action.payload],
       };
     default:
       return state;

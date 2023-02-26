@@ -1,6 +1,36 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 const ArtistPage = (props) => {
+  const seeArtist = useSelector((state) => state.artist);
+  const [name, setName] = useState([]);
+
+  const artistName = seeArtist?.map((el) => {
+    return el.artist.name;
+  });
+
+  useEffect(() => {
+    getArtist();
+  }, []);
+
+  const getArtist = async () => {
+    try {
+      let res = await fetch(
+        "https://striveschool-api.herokuapp.com/api/deezer/search?q=" +
+          artistName
+      );
+      if (res.ok) {
+        let data = await res.json();
+        let canzoni = data.data;
+        setName(canzoni);
+        console.log(canzoni);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Container className="col-12 col-md-9 offset-md-3 mainPage">
       <div className="row mb-3">
@@ -15,21 +45,31 @@ const ArtistPage = (props) => {
 
       <Row className="row">
         <div className="col-12 col-md-10 col-lg-10 mt-5">
-          <h2 className="titleMain"></h2>
-          <div id="followers"></div>
+          {seeArtist?.map((el) => {
+            return (
+              <div key={el.id}>
+                <h2 className="titleMain">{el.artist.name}</h2>
+                <p className="fs-5" id="followers">
+                  {el.rank} Followers
+                </p>
+              </div>
+            );
+          })}
+
           <div className="d-flex justify-content-center" id="button-container">
-            <button
-              className="btn btn-success mr-2 mainButton d-none"
+            <Button
+              variant="success"
+              className="btn btn-success me-3 mainButton"
               id="playButton"
             >
               PLAY
-            </button>
-            <button
-              className="btn btn-outline-light mainButton d-none"
+            </Button>
+            <Button
+              className="btn btn-outline-light ms-3 mainButton"
               id="followButton"
             >
               FOLLOW
-            </button>
+            </Button>
           </div>
         </div>
       </Row>
@@ -38,9 +78,19 @@ const ArtistPage = (props) => {
           <div className="mt-4 d-flex justify-content-start">
             <h2 className="text-white font-weight-bold">Tracks</h2>
           </div>
-          <div className="pt-5 mb-5">
-            <Row className="row" id="apiLoaded"></Row>
-          </div>
+          <Container className="pt-5 mb-5">
+            <Row className="row" id="apiLoaded">
+              {name.map((el, i) => {
+                return (
+                  <Col className="" key={i}>
+                    <img src={el.album.cover_medium} alt="" />
+                    <p className="text-white">Track: {el.title}</p>
+                    <p className="text-white">Album: {el.album.title}</p>
+                  </Col>
+                );
+              })}
+            </Row>
+          </Container>
         </div>
       </Row>
     </Container>

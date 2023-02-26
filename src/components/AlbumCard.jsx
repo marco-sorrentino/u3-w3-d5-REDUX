@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const AlbumCard = (props) => {
   const dispatch = useDispatch();
+  const artist = useDispatch();
   return (
     <div className="col text-center">
       <a href=".">
@@ -24,7 +25,16 @@ const AlbumCard = (props) => {
         </Link>
         <br />
 
-        <Link className="text-decoration-none" to={"/artist"}>
+        <Link
+          onClick={() =>
+            artist({
+              type: "VIEW_ARTIST",
+              payload: props.obj,
+            })
+          }
+          className="text-decoration-none"
+          to={"/artist"}
+        >
           Artist: {props.artist}
         </Link>
       </p>
