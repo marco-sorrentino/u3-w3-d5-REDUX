@@ -9,7 +9,7 @@ const Player = () => {
   return (
     <Container fluid className="fixed-bottom bg-container pt-1">
       <div>
-        <Row className="row ">
+        <Row className="row">
           <Col lg={10} className="offset-lg-2">
             <Col
               xs={6}
